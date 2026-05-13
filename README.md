@@ -1,4 +1,4 @@
-# VCTA – VMware Technical Associate: vSphere 8 
+# VCTA – VMware Technical Associate: vSphere 8
 
 ## Table of Contents
 
