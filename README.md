@@ -2391,6 +2391,8 @@ Configuration required:
 
 Once configured, the vDS will continuously send traffic flow summaries to the collector. The collector builds a searchable historical record that can be queried after the fact — for example, to investigate what traffic was occurring at 2:00 PM yesterday when users reported slowness.
 
+---
+
 > ### Lesson 23: Port Mirroring on vSphere Distributed Switch
 
 #### What is Port Mirroring?
