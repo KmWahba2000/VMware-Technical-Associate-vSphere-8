@@ -2510,6 +2510,8 @@ For exam preparation — features exclusive to the vSphere Distributed Switch:
 | LACP | No | Yes |
 | Filtering and Tagging | No | Yes |
 
+---
+
 > ### Lesson 25: Host Networking Rollback
 
 #### What is Host Networking Rollback?
