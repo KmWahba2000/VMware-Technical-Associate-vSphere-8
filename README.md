@@ -2438,6 +2438,8 @@ Choose the port the sniffer VM is connected to — all mirrored traffic will be 
 
 Click Finish to activate the session.
 
+---
+
 > ### Lesson 24: Network Health Check on vSphere Distributed Switch
 
 #### What is Network Health Check?
