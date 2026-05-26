@@ -4552,13 +4552,13 @@ Each ESXi host has **16 units** available for migration operations. Different mi
 
 ---
 
-> **Exam Tip:** Memorize the per-host, per-datastore, and per-NIC limits. These are the most likely values to appear on the certification exam.
+**Exam Tip:** Memorize the per-host, per-datastore, and per-NIC limits. These are the most likely values to appear on the certification exam.
 
 ---
 
 > ### Lesson 9: vMotion Enhancements in vSphere 8
 
-> **Note:** These enhancements are unlikely to appear on the certification exam but are worth knowing as improvements introduced in vSphere 8.
+**Note:** These enhancements are unlikely to appear on the certification exam but are worth knowing as improvements introduced in vSphere 8.
 
 ---
 
