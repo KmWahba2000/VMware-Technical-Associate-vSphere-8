@@ -851,7 +851,7 @@ The vCenter Server Appliance Management Interface (VAMI) is used to manage the v
 
 Log in using the root credentials set during VCSA installation.
 
-Note: The VCSA runs as a VM on ESXi(A). If ESXi is rebooted, the VCSA will shut down with it and will not come back up automatically unless autostart is configured.
+> 💡 Note: The VCSA runs as a VM on ESXi(A). If ESXi is rebooted, the VCSA will shut down with it and will not come back up automatically unless autostart is configured.
 
 To power vCenter back on manually after an ESXi reboot:
 1. Open the ESXi Host Client at `https://<esxi-ip>` — in this lab: https://192.168.1.10
@@ -1104,7 +1104,7 @@ Steps to enable NTP:
 4. Go to Manage → System → Services → start the ntpd service
 5. Verify NTP status shows Running in Time & Date
 
-Note: Precision Time Protocol (PTP) is also available but is heavier than NTP and better suited for specialized use cases.
+> 💡 Note: Precision Time Protocol (PTP) is also available but is heavier than NTP and better suited for specialized use cases.
 
 ---
 
@@ -1355,7 +1355,7 @@ Jumbo Frames are large Ethernet frames (typically MTU 9000) that improve network
 
 Both vSphere Standard Switch and vSphere Distributed Switch support Jumbo Frames.
 
-**Critical requirement:** MTU must be configured consistently across all virtual switches and physical switches. A mismatch causes fragmentation and reassembly at the physical switch, which has a significant negative impact on performance.
+> 💡 **Critical requirement:** MTU must be configured consistently across all virtual switches and physical switches. A mismatch causes fragmentation and reassembly at the physical switch, which has a significant negative impact on performance.
 
 | Scenario | Result |
 |----------|--------|
@@ -1463,7 +1463,7 @@ Physical switch configuration: **Port Channel / EtherChannel / LACP must be conf
 
 Traffic Shaping is a policy applied to a port group that limits how much bandwidth VMs in that port group can consume. This prevents one port group from monopolizing the shared VMNICs and starving other port groups of bandwidth.
 
-Note: Traffic Shaping works slightly differently on the vSphere Distributed Switch — covered in a later lesson.
+> 💡 Note: Traffic Shaping works slightly differently on the vSphere Distributed Switch — covered in a later lesson.
 
 ---
 
@@ -1527,7 +1527,7 @@ Controls whether a VM is allowed to receive traffic addressed to a MAC address d
 - **Accept** — Inbound traffic to a manually configured MAC address is allowed
 - **Reject** — Only the vSphere-assigned MAC address can receive traffic
 
-Note: Forged Transmits handles outbound MAC spoofing. MAC Address Changes handles inbound MAC spoofing. Both must be set to Accept for full MAC spoofing to work.
+> 💡 Note: Forged Transmits handles outbound MAC spoofing. MAC Address Changes handles inbound MAC spoofing. Both must be set to Accept for full MAC spoofing to work.
 
 Default: **Accept** (allowed) — recommended to set to Reject if not needed.
 
@@ -1644,7 +1644,7 @@ Each VMNIC can only be assigned to one virtual switch. To add a VMNIC to an exis
 3. Move the unclaimed VMNIC to Active adapters
 4. Click Finish
 
-Note: In a nested lab (ESXi running inside VMware Workstation), adding a new VMNIC requires adding a network adapter in Workstation settings and rebooting the ESXi host. Shut down the VCSA first before rebooting the host.
+> 💡 Note: In a nested lab (ESXi running inside VMware Workstation), adding a new VMNIC requires adding a network adapter in Workstation settings and rebooting the ESXi host. Shut down the VCSA first before rebooting the host.
 
 ---
 
@@ -1949,7 +1949,7 @@ Steps:
 
 Right-click the vDS → Add and Manage Hosts → Remove Hosts
 
-**Important:** A host cannot be removed from the vDS if any VM running on that host is connected to the vDS. The VM must be powered off or migrated to a different port group first.
+> 💡 **Important:** A host cannot be removed from the vDS if any VM running on that host is connected to the vDS. The VM must be powered off or migrated to a different port group first.
 
 ---
 
@@ -2046,7 +2046,7 @@ Three operating modes are available for the selected protocol:
 **Uplinks**
 View and modify the number of uplinks configured on the vDS. This was set during creation (4 uplinks in this lab). Uplinks not backed by a physical VMNIC are unused but do not cause issues.
 
-Note: Modifying uplinks here changes the logical uplink count on the vDS — it does not add or remove physical VMNICs from the hosts.
+> 💡 Note: Modifying uplinks here changes the logical uplink count on the vDS — it does not add or remove physical VMNICs from the hosts.
 
 ---
 
@@ -2306,7 +2306,7 @@ Rules are created based on criteria such as:
 
 When a packet matches a rule, the specified action is taken — allow or drop.
 
-**Important:** Rules are enforced in order. The first matching rule is applied. Subsequent rules are not evaluated for that packet.
+> 💡 **Important:** Rules are enforced in order. The first matching rule is applied. Subsequent rules are not evaluated for that packet.
 
 ---
 
@@ -2790,7 +2790,7 @@ Steps:
 4. Select which ESXi hosts should have access to this datastore
 5. Click Finish
 
-Note: No disk size is specified and no formatting takes place. The ESXi host is simply mounting a shared folder on the NFS server.
+> 💡 Note: No disk size is specified and no formatting takes place. The ESXi host is simply mounting a shared folder on the NFS server.
 
 ---
 
@@ -3087,7 +3087,7 @@ Tolerates: single VMnic failure, single Ethernet switch failure, single storage 
 
 iSCSI supports **CHAP (Challenge Handshake Authentication Protocol)** to verify that both the initiator (ESXi host) and the target (storage array) are legitimate devices.
 
-**Important for exam:** iSCSI is the only vSphere storage technology that supports CHAP authentication.
+> 💡 **Important for exam:** iSCSI is the only vSphere storage technology that supports CHAP authentication.
 
 ---
 
@@ -3640,7 +3640,7 @@ For each group, configure when the next group should start:
 | After a delay (seconds) | Wait a fixed number of seconds before starting the next group |
 | When VMware Tools are ready | Wait until VMware Tools reports the OS is fully up — requires VMware Tools to be installed |
 
-**Important:** If using "VMware Tools ready" as the trigger, VMware Tools must be installed on the VMs in that group — otherwise the vApp will stall and never move to the next group.
+> 💡 **Important:** If using "VMware Tools ready" as the trigger, VMware Tools must be installed on the VMs in that group — otherwise the vApp will stall and never move to the next group.
 
 ---
 
@@ -3862,7 +3862,7 @@ vSphere deploys the OVF and creates a new VM. Once complete, power it on and it 
 
 A snapshot is a point-in-time picture of a virtual machine — capturing the exact state of both memory and the virtual disk at the moment it was taken. It creates a restore point you can revert to if something goes wrong.
 
-**Important:** A snapshot is NOT a backup. It is a temporary restore point only.
+> 💡 **Important:** A snapshot is NOT a backup. It is a temporary restore point only.
 
 ---
 
@@ -3903,7 +3903,7 @@ What happens during deletion:
 3. The delta disk is deleted
 4. The original VMDK is unlocked
 
-**Critical warnings about snapshot deletion:**
+> 💡 **Critical warnings about snapshot deletion:**
 
 - The commit process can take hours or even days if the delta disk is large
 - The VM cannot be powered off or rebooted until the deletion completes
@@ -4242,7 +4242,7 @@ When initiating a vMotion, you are prompted to select a scheduling priority:
 
 Before the migration proceeds, vSphere checks that the VM's port group exists on the destination host. If the port group name does not match, a **compatibility error** will appear.
 
-> **Example:** A VM connected to a port group called `VM Network` on Host A will fail compatibility if the equivalent port group on Host B is named `VM Network 2`. Renaming the port group on the destination host to match resolves the error.
+> 💡 **Example:** A VM connected to a port group called `VM Network` on Host A will fail compatibility if the equivalent port group on Host B is named `VM Network 2`. Renaming the port group on the destination host to match resolves the error.
 
 This is one of the inherent limitations of **Standard Virtual Switches** — port groups must be manually maintained to remain consistent across all hosts. Distributed Virtual Switches eliminate this problem by managing port group configuration centrally.
 
@@ -4277,7 +4277,7 @@ Building a consistent environment across all ESXi hosts is the foundation of rel
 - **No CPU affinity** — avoid pinning VMs to specific physical CPUs unless absolutely required
 - **Design with vMotion in mind** — these requirements become critical when clusters running DRS are introduced, where vMotion occurs automatically and continuously
 
-> **Note:** When vMotion runs automatically via DRS, any configuration inconsistency across hosts will quickly surface as a migration failure. It is far easier to build the environment correctly from the start than to troubleshoot failures later.
+> 💡 **Note:** When vMotion runs automatically via DRS, any configuration inconsistency across hosts will quickly surface as a migration failure. It is far easier to build the environment correctly from the start than to troubleshoot failures later.
 
 ---
 
@@ -4380,7 +4380,7 @@ Because the VM keeps running while its files are being copied, data can change m
 - This keeps both copies in sync throughout the process
 - When the migration completes, no additional data needs to be transferred — the destination is already up to date
 
-> **Note:** Storage vMotion can be time-consuming. Large `.vmdk` files mean a large amount of data must be copied, and the process can take hours depending on datastore size and I/O throughput.
+> 💡 **Note:** Storage vMotion can be time-consuming. Large `.vmdk` files mean a large amount of data must be copied, and the process can take hours depending on datastore size and I/O throughput.
 
 ---
 
@@ -4491,7 +4491,7 @@ This means the migration must move:
 6. Map the source network to the destination port group
 7. Set migration priority → **Finish**
 
-> **Important:** The word "vMotion" always implies the VM is **powered on**. Migrating a powered-off VM is possible but is simply called a migration — not a vMotion.
+> 💡 **Important:** The word "vMotion" always implies the VM is **powered on**. Migrating a powered-off VM is possible but is simply called a migration — not a vMotion.
 
 ---
 
@@ -4552,13 +4552,13 @@ Each ESXi host has **16 units** available for migration operations. Different mi
 
 ---
 
-**Exam Tip:** Memorize the per-host, per-datastore, and per-NIC limits. These are the most likely values to appear on the certification exam.
+> 💡 **Exam Tip:** Memorize the per-host, per-datastore, and per-NIC limits. These are the most likely values to appear on the certification exam.
 
 ---
 
 > ### Lesson 9: vMotion Enhancements in vSphere 8
 
-**Note:** These enhancements are unlikely to appear on the certification exam but are worth knowing as improvements introduced in vSphere 8.
+> 💡 **Note:** These enhancements are unlikely to appear on the certification exam but are worth knowing as improvements introduced in vSphere 8.
 
 ---
 
@@ -4608,7 +4608,7 @@ vSphere HA protects virtual machines from failures by automatically restarting t
 | **Fault Tolerance (FT)** | No — zero downtime | ❌ No |
 | **DRS** | No | ✅ Yes |
 
-> **Key Point:** HA never uses vMotion. HA involves downtime. vMotion does not.
+> 💡 **Key Point:** HA never uses vMotion. HA involves downtime. vMotion does not.
 
 ---
 
@@ -4652,7 +4652,7 @@ The election is based on:
 | Primary | Sends heartbeats to all secondary hosts; monitors the cluster |
 | Secondary | Sends heartbeats to the primary; responds to HA events |
 
-> Secondary hosts do **not** send heartbeats to each other — only to the primary.
+> 💡 Secondary hosts do **not** send heartbeats to each other — only to the primary.
 
 ---
 
@@ -4685,7 +4685,7 @@ To reduce false positives from host isolation events, best practice is to config
 - If a host cannot send heartbeats over either network, it is much more likely that the host has truly failed
 - If only one path is down, the primary can still receive heartbeats over the second network and avoid triggering a false HA response
 
-> **Best Practice:** Always configure at least two management network paths in an HA cluster to distinguish between true host failures and simple network isolation events.
+> 💡 **Best Practice:** Always configure at least two management network paths in an HA cluster to distinguish between true host failures and simple network isolation events.
 
 ---
 
@@ -4752,7 +4752,7 @@ The correct response depends on the network architecture:
 - If VM traffic shares the **same physical adapters and switches** as management traffic → management network down likely means VMs are also unreachable → **Shut Down or Power Off** is appropriate
 - If VMs use **separate physical adapters and switches** → VM traffic may still be working fine despite the management network being down → **Do Nothing** may be the better choice
 
-> **Best Practice:** Design your network with separate physical adapters for management traffic and VM traffic. This gives you more flexibility in choosing a safe isolation response.
+> 💡 **Best Practice:** Design your network with separate physical adapters for management traffic and VM traffic. This gives you more flexibility in choosing a safe isolation response.
 
 ---
 
@@ -4770,7 +4770,7 @@ When a secondary host goes down, the primary detects the failure through a three
 
 All three checks failing confirms the host is **truly down**. The primary then begins restarting all VMs that were running on the failed host on the remaining cluster hosts.
 
-> **Restart Priority:** If configured, the most critical VMs are restarted first.
+**Restart Priority:** If configured, the most critical VMs are restarted first.
 
 ---
 
@@ -4810,7 +4810,7 @@ VM crashes → heartbeats stop → FDM detects failure → VM rebooted on same h
 
 > ### Lesson 4: Demo — Basic High Availability Configuration in vSphere
 
-> **Important:** This lesson covers **vSphere HA** — High Availability for virtual machines running on ESXi hosts. This is completely separate from **vCenter High Availability (vCHA)**, which is covered later in this section.
+> 💡 **Important:** This lesson covers **vSphere HA** — High Availability for virtual machines running on ESXi hosts. This is completely separate from **vCenter High Availability (vCHA)**, which is covered later in this section.
 
 ---
 
@@ -4905,13 +4905,13 @@ Monitors individual VMs using VMware Tools heartbeats:
 | VM Monitoring | VM is rebooted on the **same host** if heartbeats stop |
 | VM and Application Monitoring | Also monitors specific applications — resets the VM if an app stops responding |
 
-> **Note:** VM Monitoring reboots the VM on the same host — it does not migrate it. The host itself is healthy; only the individual VM has failed.
+> 💡 **Note:** VM Monitoring reboots the VM on the same host — it does not migrate it. The host itself is healthy; only the individual VM has failed.
 
 ---
 
 > ### Lesson 5: vCenter High Availability (vCHA) for vSphere 8
 
-> **Exam Warning:** Do not confuse **vCenter High Availability (vCHA)** with **vSphere High Availability (HA)**. vSphere HA protects VMs running in a cluster. vCHA protects the vCenter Server Appliance itself.
+> 💡 **Exam Warning:** Do not confuse **vCenter High Availability (vCHA)** with **vSphere High Availability (HA)**. vSphere HA protects VMs running in a cluster. vCHA protects the vCenter Server Appliance itself.
 
 ---
 
@@ -4927,7 +4927,7 @@ vCHA uses three nodes to keep vCenter available:
 
 The **Active** node replicates its database **synchronously** to the **Passive** node at all times. If the Active fails, the Passive assumes the Active's identity — including its IP address — and takes over immediately.
 
-> **Recovery Time Objective (RTO): 5 minutes** — this is the expected downtime window in the event of a vCenter failover.
+> 💡 **Recovery Time Objective (RTO): 5 minutes** — this is the expected downtime window in the event of a vCenter failover.
 
 ---
 
@@ -5019,7 +5019,7 @@ For each node (Passive and Witness), configure:
 | Management Network | Required | Not required |
 | vCHA Network | Required | Required |
 
-> **Note:** The Witness node does not need a Management Network — it is never used for vSphere Client access or management tasks.
+> 💡 **Note:** The Witness node does not need a Management Network — it is never used for vSphere Client access or management tasks.
 
 ---
 
@@ -5194,7 +5194,7 @@ When the host running the Primary VM fails:
 1. The Secondary VM **immediately becomes the new Primary** — zero downtime
 2. A **new Secondary VM** is automatically spawned on another host to re-protect the new Primary
 
-> **Important:** FT does **not** protect against OS-level failures (e.g. blue screen, accidental data deletion, virus). Any changes in the Primary OS — including bad ones — are replicated to the Secondary in real time.
+> 💡 **Important:** FT does **not** protect against OS-level failures (e.g. blue screen, accidental data deletion, virus). Any changes in the Primary OS — including bad ones — are replicated to the Secondary in real time.
 
 ---
 
@@ -5275,7 +5275,7 @@ The wizard will prompt for:
 - **Datastore for Secondary VM** — must be different from the Primary VM's datastore
 - **ESXi Host for Secondary VM** — must be different from the host running the Primary
 
-> **Best Practice:** Place the Secondary VM's files on a completely separate storage array from the Primary to maximize availability.
+> 💡 **Best Practice:** Place the Secondary VM's files on a completely separate storage array from the Primary to maximize availability.
 
 ---
 
@@ -5357,7 +5357,7 @@ These three mechanisms control how resources are allocated within and across Res
 | **Limits** | Set a hard ceiling on resource usage — never exceeded, even if resources are available | Always |
 | **Reservations** | Guarantee a minimum amount of resources — immediately consumed at boot | Always |
 
-> **Key Point:** Shares are the most flexible option — they only kick in when the host is running low on resources. Limits and reservations are strictly enforced at all times.
+> 💡 **Key Point:** Shares are the most flexible option — they only kick in when the host is running low on resources. Limits and reservations are strictly enforced at all times.
 
 ---
 
@@ -5420,7 +5420,7 @@ A vApp is typically used when VMs have a dependency on each other — for exampl
 
 DRS is automated vMotion for the purposes of load balancing. It continuously monitors resource usage across all hosts in a cluster and automatically migrates VMs from one host to another to keep workloads balanced.
 
-> **Core concept:** DRS = automated vMotion. It works only as well as vMotion works within the cluster.
+> 💡 **Core concept:** DRS = automated vMotion. It works only as well as vMotion works within the cluster.
 
 ---
 
@@ -5492,7 +5492,7 @@ The score is based on several factors:
 | Host Headroom | Whether the host has enough spare resources to handle the VM's expanding workload |
 | vMotion Cost | The CPU and network overhead of performing a vMotion — factored into whether migration is worth it |
 
-> **Key Point:** The VM DRS Score is not a health score — it measures **execution efficiency**. A low score means the VM could run better on a different host, and DRS will migrate it if the improvement justifies the cost of the vMotion.
+> 💡 **Key Point:** The VM DRS Score is not a health score — it measures **execution efficiency**. A low score means the VM could run better on a different host, and DRS will migrate it if the improvement justifies the cost of the vMotion.
 
 ---
 
@@ -5559,7 +5559,7 @@ For larger environments, individual VM rules may not be enough. DRS supports **V
 | **Preferential** | Production VMs run on Production Hosts under normal conditions | HA can restart them on Dev Hosts if all Production Hosts fail |
 | **Required (Mandatory)** | Production VMs must run on Production Hosts | HA will not restart them on Dev Hosts — VMs remain down |
 
-> **Best Practice:** Use Preferential rules in most cases. Mandatory rules provide stricter control but can result in VMs not recovering during a major failure.
+> 💡 **Best Practice:** Use Preferential rules in most cases. Mandatory rules provide stricter control but can result in VMs not recovering during a major failure.
 
 ---
 
@@ -5606,7 +5606,7 @@ DRS can also be **fully disabled** for a specific VM using a VM override, while 
 
 Create a Host Group (e.g. ESXi01 and ESXi02) and apply a **Preferential Affinity Rule** specifying that vCenter should run on that group of hosts. This limits vCenter's possible locations to a known subset of hosts without preventing failover.
 
-> Use a **Preferential** (not Mandatory) rule so that if all hosts in the group fail, HA can still restart vCenter on another available host.
+> 💡 Use a **Preferential** (not Mandatory) rule so that if all hosts in the group fail, HA can still restart vCenter on another available host.
 
 ---
 
@@ -5667,7 +5667,7 @@ Update Manager (built into the vCenter Server Appliance) handles ESXi host patch
 
 This allows patching to be performed even during business hours, since no VMs are ever powered off.
 
-> **Key Benefit:** DRS + Update Manager together enable zero-downtime rolling maintenance across an entire cluster.
+> 💡 **Key Benefit:** DRS + Update Manager together enable zero-downtime rolling maintenance across an entire cluster.
 
 ---
 
@@ -5751,7 +5751,7 @@ DRS has full control — it places VMs automatically at power-on and continuousl
 | Default (recommended) | Migrates VMs only when there is a meaningful performance improvement |
 | Low (conservative) | Migrates VMs only when forced — e.g. Affinity Rules or Maintenance Mode |
 
-> **Best Practice:** Leave sensitivity at the default level. Every vMotion consumes CPU resources and network bandwidth on the host. Migrating VMs for marginal gains wastes resources and creates unnecessary overhead.
+> 💡 **Best Practice:** Leave sensitivity at the default level. Every vMotion consumes CPU resources and network bandwidth on the host. Migrating VMs for marginal gains wastes resources and creates unnecessary overhead.
 
 ---
 
@@ -5781,7 +5781,7 @@ When DRS is enabled alongside HA, the response to a host failure becomes much mo
 4. The large VM boots up on that now-available host
 5. Once the failed host is repaired and returns, DRS rebalances the cluster again
 
-> **HA + DRS = the recommended combination.** HA handles recovery. DRS handles intelligent resource allocation. Together they provide both resilience and performance.
+> 💡 **HA + DRS = the recommended combination.** HA handles recovery. DRS handles intelligent resource allocation. Together they provide both resilience and performance.
 
 ---
 
@@ -5870,6 +5870,6 @@ Navigate to: **Cluster → Configure → VM/Host Groups → Add**
 | VMs **must** run on hosts in group | Required / Mandatory | ❌ No |
 | VMs **should** run on hosts in group | Preferential | ✅ Yes |
 
-> **Important:** DRS only optimizes for performance. It has no awareness of what your VMs actually do. It is your responsibility to configure overrides, affinity rules, and group rules to prevent DRS from making changes that could cause problems in your environment.
+> 💡 **Important:** DRS only optimizes for performance. It has no awareness of what your VMs actually do. It is your responsibility to configure overrides, affinity rules, and group rules to prevent DRS from making changes that could cause problems in your environment.
 
 ---
